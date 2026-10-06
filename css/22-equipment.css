@@ -1,0 +1,261 @@
+/* ---------- Gym Equipment ---------- */
+.equipment-section { overflow: hidden; }
+
+.equipment-grid {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.equipment-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.equipment-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+.equipment-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #101416;
+}
+
+.equipment-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.equipment-info { padding: 16px; }
+
+.equipment-tag {
+    color: var(--accent);
+    font-size: .7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+.equipment-info h3 {
+    margin: 6px 0 5px;
+    font-size: 1rem;
+}
+
+.equipment-info p {
+    min-height: 42px;
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: .76rem;
+    line-height: 1.45;
+}
+
+.equipment-price {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--accent);
+    font-size: 1.08rem;
+}
+
+.equipment-details-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    padding: 11px 13px;
+    border-radius: 25px;
+    font-size: .78rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.equipment-details-btn:hover,
+.equipment-details-btn[aria-expanded="true"] {
+    background: var(--accent);
+    color: #0b0f11;
+}
+
+.equipment-details-text { flex: 1; text-align: center; }
+.equipment-details-arrow { transition: transform .25s ease; }
+.equipment-details-btn[aria-expanded="true"] .equipment-details-arrow { transform: rotate(180deg); }
+
+.equipment-details {
+    display: none;
+    padding: 18px 16px 16px;
+    background: color-mix(in srgb, var(--surface) 88%, #000 12%);
+    border-top: 1px solid var(--line);
+}
+
+.equipment-details.active {
+    display: block;
+    animation: equipmentDetailsOpen .25s ease;
+}
+
+@keyframes equipmentDetailsOpen {
+    from { opacity: 0; transform: translateY(-7px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.equipment-details h4 {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+.equipment-detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.equipment-detail-row:last-of-type { border-bottom: 0; }
+.equipment-detail-row span:first-child { color: var(--muted); font-size: .7rem; }
+.equipment-detail-row span:last-child { color: var(--text); font-size: .72rem; font-weight: 700; text-align: right; }
+.equipment-detail-row.stock-row span:last-child { color: var(--accent); }
+
+.equipment-whatsapp-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 11px 13px;
+    border-radius: 24px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    font-size: .76rem;
+    font-weight: 800;
+    transition: .25s ease;
+}
+
+.equipment-whatsapp-btn:hover {
+    background: #128C7E;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.equipment-whatsapp-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex: 0 0 18px;
+}
+
+.equipment-note {
+    width: min(1200px, 100%);
+    margin: 18px auto 0;
+    color: var(--muted);
+    font-size: .72rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 1000px) {
+    .equipment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+    .equipment-grid { grid-template-columns: 1fr; gap: 14px; }
+    .equipment-info p { min-height: auto; }
+}
+
+/* ---------- Professional equipment presentation ---------- */
+.equipment-heading {
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.equipment-heading p {
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.equipment-heading-points {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.equipment-heading-points span {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+    background: var(--surface);
+    font-size: .7rem;
+    font-weight: 800;
+}
+
+.equipment-image { position: relative; }
+
+.equipment-price-badge {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 5px 11px;
+    border: 1px solid rgba(255,255,255,.24);
+    border-radius: 999px;
+    background: rgba(10,14,16,.82);
+    color: var(--accent);
+    box-shadow: 0 8px 22px rgba(0,0,0,.22);
+    backdrop-filter: blur(8px);
+    font-size: .82rem;
+    font-weight: 900;
+}
+
+.equipment-info h3 { letter-spacing: -.1px; }
+.equipment-info p { min-height: 52px; }
+
+.equipment-details {
+    border-top-color: color-mix(in srgb, var(--accent) 25%, var(--line));
+}
+
+.equipment-details h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.equipment-details h4::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    border-radius: 10px;
+    background: var(--accent);
+}
+
+@media (max-width: 600px) {
+    .equipment-heading-points { justify-content: flex-start; }
+    .equipment-heading-points span { font-size: .66rem; }
+}
